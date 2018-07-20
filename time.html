@@ -1,0 +1,43 @@
+<html>
+
+<head>
+    <title>Color Of Time</title>
+    <style>
+        #time-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+        }
+
+        #time {
+            font-size: 10em;
+        }
+
+        #label {
+            font-size:4em;
+        }
+    </style>
+</head>
+
+<body>
+    <span id="time-container">
+        <span id="label">Color Of Time</span>
+        <span id="time"></span>
+    </span>
+    <script>
+        let body = document.getElementsByTagName("body")[0]
+        setInterval(function () {
+            let date = new Date()
+            let hour = date.getHours()
+            let second = date.getSeconds();
+            let minute = date.getMinutes();
+            body.style.background = "rgb(" + hour / 24 * 255 + "," + minute / 60 * 255 + "," + second / 60 * 255 + ")"
+            document.getElementById("time").innerText = hour + ":" + minute + ":" + second
+        }, 1000)
+    </script>
+</body>
+
+</html>
